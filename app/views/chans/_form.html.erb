@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+<body>
+    <div class="form-group">
+      <h1>New Message Chan <small></small></h1>
+        <%= form_with(model: chan, role:"form") do |form| %>
+        <%= form.text_field :title, class:"form-control", placeholder:"Your Task" %>
+        <%= form.text_field :project_id, type: :hidden %>
+        <%= form.submit class:"btn btn btn-primary", style:"margin-left: 150px"%>
+        <% end %>
+    </div>
+  <ul class="list-unstyled" id="todo"></ul>
+</body>
+
+<style>
+  form {
+    display: inline-block;
+    float: left;
+}
+.form-group {
+    padding-bottom: 25px;
+}
+#todo {
+    margin: 0 auto;
+    width: 500px;
+}
+
+a.close {
+  float: right;
+}
+
+
+</style>

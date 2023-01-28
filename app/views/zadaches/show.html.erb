@@ -1,0 +1,9 @@
+
+<%= render @zadach %>
+
+<div>
+  <%= link_to "Edit", edit_zadach_path(@zadach) %> |
+  <%= link_to "Back", project_zadaches_path(@zadach.project) %>
+
+  <%= button_to "Destroy", @zadach, method: :delete %>
+</div>

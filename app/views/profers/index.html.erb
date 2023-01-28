@@ -1,0 +1,92 @@
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+<body>
+
+  <div class="form-group">
+    <h1>Attachment <small>Comment</small></h1>
+    <%= form_with(model: @profer, role:"form") do |form| %>
+    <%= form.text_field :des,  class:"form-control", placeholder:"Your Comment" %>
+    <br>
+    <%= form.file_field :prof %>
+    <%= form.text_field :project_id, type: :hidden %>
+    <%= form.submit class:"btn btn btn-primary", style:"margin-left: 260px; margin-top: -40px"%>
+    <% end %> 
+  </div>
+
+</body>
+<br>
+
+<div>
+    <br>
+
+<br><br>
+<div id="profers">
+  <% @profers.each do |profer| %>
+    <% if profer.id %>
+    <%= render profer %>
+    <br>
+    <p>
+      <%= link_to "Show", profer, class: "button-13" %>
+    <% end %>
+    </p>
+  <% end %>
+</div>
+
+
+
+<%= link_to "Back", project_path(@project), class:"button-13" %>
+
+<style>
+ .button-13 {
+  background-color: #fff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+  box-sizing: border-box;
+  color: #0f1111;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Amazon Ember",sans-serif;
+  font-size: 13px;
+  line-height: 29px;
+  padding: 0 10px 0 11px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: 100px;
+}
+
+.button-13:hover {
+  background-color: #f7fafa;
+}
+
+.button-13:focus {
+  border-color: #008296;
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+  outline: 0;
+}
+
+form {
+    display: inline-block;
+    float: left;
+}
+.form-group {
+    padding-bottom: 25px;
+}
+#todo {
+    margin: 0 auto;
+    width: 500px;
+}
+
+a.close {
+  float: right;
+}
+
+
+</style>

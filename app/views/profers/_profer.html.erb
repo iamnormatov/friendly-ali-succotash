@@ -1,0 +1,19 @@
+<div id="<%= dom_id profer %>">
+  <p>
+    <strong>Des:</strong>
+    <%= profer.des %>
+  </p>
+  <p>
+    <strong>File:</strong>
+    <%= profer.prof.filename %>
+  </p>
+  
+  <% if profer.prof.image? %>
+    <img src="<%= rails_blob_path(profer.prof, disposition: "attachment") %>" width="80" height="80" alt="">
+    <a href="<%= rails_blob_path(profer.prof, disposition: "attachment") %> ">Download</a>
+    <% else %>
+    <a href="<%= rails_blob_path(profer.prof, disposition: "attachment") %> ">Download</a>
+  <% end %>
+  
+
+</div>

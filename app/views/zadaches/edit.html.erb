@@ -1,0 +1,14 @@
+<h1>Editing zadach</h1>
+
+<%= form_with(model: @zadach) do |form| %>
+    <%= form.text_field :title %>
+
+
+    <%= form.submit %>
+<% end %>
+
+<br>
+
+<div>
+  <%= link_to "Back", project_zadaches_path(@zadach.project) %>
+</div>

@@ -1,0 +1,121 @@
+<br><br>
+<%= render @chan %>
+
+<div>
+  <%= link_to "Back", project_chans_path(@chan.project), class:"button-13" %>
+  <%= link_to "Edit", edit_project_chan_path(@chan), class:"button-13" %> 
+  <%= link_to "Destroy", @chan, "data-turbo-method": :delete, class:"button-13" %>
+</div>
+
+<br><br>
+
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+<body>
+    <div class="form-group">
+    <%= form_with(model: @channer, role:"form") do |form| %>
+    <%= form.text_field :title, class:"form-control", placeholder:"Your Task"%>
+    <%= form.text_field :chan_id, value: @chan.id, type: :hidden %>
+    <%= form.text_field :user_id, value: current_user.id, type: :hidden %>
+    <%= form.submit class:"btn btn btn-primary", style:"margin-left: 250px"%>
+    <% end %>
+    </div>
+    <ul class="list-unstyled" id="todo"></ul>
+</body>
+
+<div id="channers">
+  <% @channers.each do |channer| %> <br><br><br>
+    <label><%= channer.user.email %></label>
+    <p><%= channer.title %></p>
+    <p>
+      <%= link_to "Delete", channer, 'data-turbo-method': :delete, class:"button-13" %>
+    </p>
+  <% end %>
+</div>
+
+<style>
+.button-13 {
+  background-color: #fff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+  box-sizing: border-box;
+  color: #0f1111;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Amazon Ember",sans-serif;
+  font-size: 13px;
+  line-height: 29px;
+  padding: 0 10px 0 11px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: 100px;
+}
+
+.button-13:hover {
+  background-color: #f7fafa;
+}
+
+.button-13:focus {
+  border-color: #008296;
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+  outline: 0;
+}.button-13 {
+  background-color: #fff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+  box-sizing: border-box;
+  color: #0f1111;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Amazon Ember",sans-serif;
+  font-size: 13px;
+  line-height: 29px;
+  padding: 0 10px 0 11px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: 100px;
+}
+
+.button-13:hover {
+  background-color: #f7fafa;
+}
+
+.button-13:focus {
+  border-color: #008296;
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+  outline: 0;
+}
+
+
+form {
+    display: inline-block;
+    float: left;
+}
+.form-group {
+    padding-bottom: 25px;
+}
+#todo {
+    margin: 0 auto;
+    width: 500px;
+}
+
+a.close {
+  float: right;
+}
+
+
+</style>
